@@ -19,6 +19,10 @@ public class Credito {
     @Column(name = "monto", length = 45)
     private String monto;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "usuarios_id", nullable = false)
+    private Usuario usuarios;
+
     @Column(name = "fecha")
     private Instant fecha;
 
