@@ -46,7 +46,7 @@ public class UsuarioController {
 
         if (request.getMethod().equals("POST") || request.getMethod().equals("PUT")) {
             responseMap.put("estado", "“error");
-            responseMap.put("msg", "Debe enviar un producto");
+            responseMap.put("msg", "Debe enviar un usuario");
 
         }
         return ResponseEntity.badRequest().body(responseMap);
