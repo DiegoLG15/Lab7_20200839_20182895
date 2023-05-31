@@ -1,6 +1,7 @@
 package com.example.lab7_20200839_20182895.controller;
 
 
+import com.example.lab7_20200839_20182895.entity.Usuario;
 import com.example.lab7_20200839_20182895.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
