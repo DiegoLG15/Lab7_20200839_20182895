@@ -26,14 +26,10 @@ public class PagosController {
 
     @PostMapping(value = "/registrarPago")
     public ResponseEntity<HashMap<String,Object>> registrarPago(
-            @RequestBody Pagos pagos,
-            @RequestParam (value = "fetchId",required = false) boolean fetchId){
+            @RequestBody Pagos pagos){
         HashMap<String,Object> responseMap = new HashMap<>();
         pagosRespository.save(pagos);
-        if (fetchId){
-            responseMap.put("id creado", pagos.getId());
-        }
-        responseMap.put("estado","creado");
+        responseMap.put("id creado", pagos.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
     @ExceptionHandler(HttpMessageNotReadableException.class)
