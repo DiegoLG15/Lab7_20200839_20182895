@@ -147,12 +147,10 @@ public class SolicitudesController {
             if(solicitudesRepository.existsById(id)){
                 Optional<Solicitudes> optionalSolicitud = solicitudesRepository.findById(id);
                 Solicitudes solicitud = optionalSolicitud.get();
-                System.out.println(solicitud.getSolicitudEstado());
                 if (solicitud.getSolicitudEstado().equals("denegado")){
                     solicitudesRepository.deleteById(id);
                     responseMap.put("estado","borrado exitoso");
                 }else{
-                    System.out.println("2"+solicitud.getSolicitudEstado());
                     responseMap.put("estado","No se puede eliminar un estado que no sea denegado");
                 }
                 return ResponseEntity.ok(responseMap);
