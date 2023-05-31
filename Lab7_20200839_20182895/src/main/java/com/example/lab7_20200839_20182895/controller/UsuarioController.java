@@ -15,6 +15,29 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UsuarioController {
+
+    private final UsuarioRepository usuarioRepository;
+
+    public UsuarioController(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+
+    @GetMapping("/listar")
+    public List<Usuario> listarUsuarios() {
+        return usuarioRepository.findAll();
+    }
+    @PostMapping(value = "/crear")
+    public ResponseEntity<HashMap<String,Object>> crearUsuario(
+            @RequestBody Usuario usuario,
+            @RequestParam (value = "fetchId",required = false) boolean fetchId){
+        HashMap<String,Object> responseMap = new HashMap<>();
+        usuarioRepository.save(usuario);
+        if (fetchId){
+            responseMap.put("id creado", usuario.getId());
+        }
+        responseMap.put("estado","creado");
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+    }
 }
