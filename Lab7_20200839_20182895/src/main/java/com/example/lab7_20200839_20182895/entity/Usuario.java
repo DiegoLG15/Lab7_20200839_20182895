@@ -40,6 +40,6 @@ public class Usuario {
     private Rol rol;
 
     @Column(name = "fecha_registro")
-    private String fechaRegistro;
+    private Instant fechaRegistro;
 
 }
