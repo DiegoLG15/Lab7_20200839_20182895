@@ -35,7 +35,7 @@ public class UsuarioController {
         if (fetchId){
             responseMap.put("id creado", usuario.getId());
         }
-        responseMap.put("estado","creado");
+        responseMap.put("id_creado",usuario.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
 
