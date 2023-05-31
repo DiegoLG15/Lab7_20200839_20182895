@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -39,6 +40,6 @@ public class Usuario {
     private Rol rol;
 
     @Column(name = "fecha_registro")
-    private Instant fechaRegistro;
+    private String fechaRegistro;
 
 }
