@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -23,7 +24,7 @@ public class Solicitudes {
     private Double solicitudMonto;
 
     @Column(name = "solicitud_fecha")
-    private Instant solicitudFecha;
+    private LocalDateTime solicitudFecha;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "usuarios_id", nullable = false)
