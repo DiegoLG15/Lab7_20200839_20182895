@@ -3,8 +3,10 @@ package com.example.lab7_20200839_20182895.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -20,7 +22,8 @@ public class Acciones {
     private Double monto;
 
     @Column(name = "fecha")
-    private Instant fecha;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fecha;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "usuarios_id", nullable = false)
